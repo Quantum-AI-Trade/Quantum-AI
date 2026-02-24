@@ -1,0 +1,49 @@
+.trustBar {
+  padding: 3rem 0;
+  border-top: 1px solid rgba(109, 172, 217, 0.05);
+  border-bottom: 1px solid rgba(109, 172, 217, 0.05);
+  background-color: var(--background-dark);
+}
+
+.title {
+  text-align: center;
+  color: #64748b;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.logos:hover {
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+.logoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 900;
+  font-size: 1.25rem;
+  filter: grayscale(1);
+  transition: filter 0.3s ease;
+}
+
+.logos:hover .logoItem {
+  filter: grayscale(0);
+}
+
+.logoItem span {
+  color: var(--primary);
+}

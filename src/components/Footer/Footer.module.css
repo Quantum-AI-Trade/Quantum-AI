@@ -1,0 +1,421 @@
+.footer {
+  background-color: var(--background-dark);
+  border-top: 1px solid rgba(109, 172, 217, 0.1);
+  padding: 3rem 0 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .footer {
+    padding: 4rem 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    padding: 5rem 0 2.5rem;
+  }
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 480px) {
+  .footerGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .footerGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footerGrid {
+    gap: 3rem;
+    margin-bottom: 5rem;
+  }
+}
+
+.brandSection {
+  grid-column: span 1;
+}
+
+@media (min-width: 480px) {
+  .brandSection {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 768px) {
+  .brandSection {
+    grid-column: span 1;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 640px) {
+  .logo {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.logo span:first-child {
+  color: var(--primary);
+  font-size: 1.75rem;
+}
+
+@media (min-width: 640px) {
+  .logo span:first-child {
+    font-size: 2rem;
+  }
+}
+
+.logoText {
+  font-size: 1.125rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: white;
+}
+
+@media (min-width: 640px) {
+  .logoText {
+    font-size: 1.25rem;
+  }
+}
+
+.brandDescription {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  max-width: 100%;
+}
+
+@media (min-width: 640px) {
+  .brandDescription {
+    font-size: 0.875rem;
+    line-height: 1.625;
+    margin-bottom: 1.5rem;
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  .brandDescription {
+    max-width: 100%;
+  }
+}
+
+.socialLinks {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 640px) {
+  .socialLinks {
+    gap: 1rem;
+  }
+}
+
+.socialLink {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background-color: rgba(3, 52, 110, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+@media (min-width: 640px) {
+  .socialLink {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .socialLink {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+.socialLink:hover {
+  background-color: var(--primary);
+  color: var(--background-dark);
+  transform: translateY(-2px);
+}
+
+.socialLink span {
+  font-size: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .socialLink span {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .socialLink span {
+    font-size: 1.5rem;
+  }
+}
+
+.linkGroupTitle {
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .linkGroupTitle {
+    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .linkGroupTitle {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.linkGroupTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--primary);
+  border-radius: 2px;
+}
+
+@media (min-width: 640px) {
+  .linkGroupTitle::after {
+    width: 35px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .linkGroupTitle::after {
+    width: 40px;
+  }
+}
+
+.linkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+@media (min-width: 640px) {
+  .linkList {
+    gap: 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .linkList {
+    gap: 1rem;
+  }
+}
+
+.link {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+  display: inline-block;
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .link {
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .link {
+    font-size: 0.875rem;
+  }
+}
+
+.link:hover {
+  color: var(--primary);
+  padding-left: 5px;
+}
+
+.footerBottom {
+  border-top: 1px solid rgba(109, 172, 217, 0.05);
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .footerBottom {
+    padding-top: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footerBottom {
+    padding-top: 2.5rem;
+  }
+}
+
+.disclaimer {
+  font-size: 0.55rem;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+  padding: 0 0.5rem;
+}
+
+@media (min-width: 480px) {
+  .disclaimer {
+    font-size: 0.6rem;
+    max-width: 95%;
+  }
+}
+
+@media (min-width: 640px) {
+  .disclaimer {
+    font-size: 0.625rem;
+    max-width: 90%;
+    margin-bottom: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .disclaimer {
+    max-width: 85%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .disclaimer {
+    max-width: 80%;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .disclaimer {
+    max-width: 70%;
+    font-size: 0.65rem;
+  }
+}
+
+.copyright {
+  color: #64748b;
+  font-size: 0.65rem;
+  padding: 0 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .copyright {
+    font-size: 0.7rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .copyright {
+    font-size: 0.75rem;
+  }
+}
+
+/* Extra small devices optimization */
+@media (max-width: 379px) {
+  .footerGrid {
+    gap: 1.5rem;
+  }
+  
+  .logo span:first-child {
+    font-size: 1.5rem;
+  }
+  
+  .logoText {
+    font-size: 1rem;
+  }
+  
+  .brandDescription {
+    font-size: 0.75rem;
+  }
+  
+  .linkGroupTitle {
+    font-size: 0.95rem;
+  }
+  
+  .link {
+    font-size: 0.75rem;
+  }
+  
+  .disclaimer {
+    font-size: 0.5rem;
+  }
+  
+  .copyright {
+    font-size: 0.6rem;
+  }
+  
+  .socialLink {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  
+  .socialLink span {
+    font-size: 1rem;
+  }
+}
+
+/* Landscape mode optimization */
+@media (max-height: 600px) and (orientation: landscape) {
+  .footer {
+    padding: 2rem 0 1rem;
+  }
+  
+  .footerGrid {
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .brandDescription {
+    margin-bottom: 1rem;
+  }
+}

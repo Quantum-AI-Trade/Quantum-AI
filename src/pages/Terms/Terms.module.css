@@ -1,0 +1,391 @@
+.termsPage {
+  min-height: 100vh;
+  background-color: var(--background-dark);
+  font-family: 'Inter', sans-serif;
+  padding: 8rem 1.5rem 4rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.container {
+  max-width: 64rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.termsCard {
+  background-color: rgba(3, 52, 110, 0.1);
+  border: 1px solid rgba(109, 172, 217, 0.2);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+  .termsCard {
+    padding: 3rem;
+  }
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 1rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary), var(--accent-cream));
+  border-radius: 2px;
+}
+
+.lastUpdated {
+  text-align: center;
+  color: var(--primary);
+  font-size: 0.875rem;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.section {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(109, 172, 217, 0.1);
+}
+
+.section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+}
+
+.sectionTitle span {
+  font-size: 1.5rem;
+}
+
+.sectionContent {
+  color: #cbd5e1;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .sectionContent {
+    font-size: 1rem;
+  }
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.listItem {
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #cbd5e1;
+}
+
+.listItem::before {
+  content: '•';
+  color: var(--primary);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
+
+.highlight {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.important {
+  background-color: rgba(109, 172, 217, 0.1);
+  border-left: 4px solid var(--primary);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  color: #e2e8f0;
+  font-style: italic;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary);
+  color: var(--background-dark);
+  text-decoration: none;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.backLink:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(109, 172, 217, 0.3);
+}
+
+.backLink:active {
+  transform: scale(0.98);
+}
+
+.backIcon {
+  font-size: 1.25rem;
+}
+
+.agreementCheck {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: rgba(109, 172, 217, 0.05);
+  border-radius: 1rem;
+  border: 1px solid rgba(109, 172, 217, 0.2);
+}
+
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.25rem;
+  border: 2px solid var(--primary);
+  background-color: transparent;
+  cursor: pointer;
+  accent-color: var(--primary);
+}
+
+.checkboxLabel {
+  color: #e2e8f0;
+  font-size: 0.95rem;
+}
+
+.checkboxLabel a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.checkboxLabel a:hover {
+  text-decoration: underline;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.acceptButton {
+  padding: 0.875rem 2rem;
+  background-color: var(--primary);
+  color: var(--background-dark);
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  min-width: 200px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.acceptButton:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(109, 172, 217, 0.3);
+}
+
+.acceptButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.declineButton {
+  padding: 0.875rem 2rem;
+  background-color: transparent;
+  color: #e2e8f0;
+  border: 2px solid rgba(109, 172, 217, 0.3);
+  border-radius: 0.75rem;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  min-width: 200px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.declineButton:hover {
+  border-color: var(--primary);
+  background-color: rgba(109, 172, 217, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .termsPage {
+    padding: 7rem 1rem 3rem;
+  }
+  
+  .termsCard {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.1rem;
+  }
+  
+  .sectionTitle span {
+    font-size: 1.3rem;
+  }
+  
+  .sectionContent {
+    font-size: 0.9rem;
+  }
+  
+  .buttonGroup {
+    flex-direction: column;
+  }
+  
+  .acceptButton, .declineButton {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 380px) {
+  .termsPage {
+    padding: 6rem 0.75rem 2rem;
+  }
+  
+  .termsCard {
+    padding: 1.25rem;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .checkboxWrapper {
+    align-items: flex-start;
+  }
+  
+  .checkbox {
+    margin-top: 0.2rem;
+  }
+}
+
+/* Dark mode scrollbar */
+.termsCard::-webkit-scrollbar {
+  width: 8px;
+}
+
+.termsCard::-webkit-scrollbar-track {
+  background: rgba(3, 52, 110, 0.1);
+  border-radius: 4px;
+}
+
+.termsCard::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.termsCard::-webkit-scrollbar-thumb:hover {
+  background: rgba(109, 172, 217, 0.8);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.termsCard {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Print styles */
+@media print {
+  .termsPage {
+    background-color: white;
+    padding: 2rem;
+  }
+  
+  .termsCard {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  .title {
+    color: black;
+  }
+  
+  .sectionTitle {
+    color: #333;
+  }
+  
+  .backLink, .buttonGroup {
+    display: none;
+  }
+}
