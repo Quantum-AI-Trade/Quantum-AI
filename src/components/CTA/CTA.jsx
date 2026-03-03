@@ -21,7 +21,8 @@ const CTA = () => {
           
           <div className={styles.buttons}>
             <button 
-              onClick={() => navigate('/register')} 
+              onClick={() => {navigate('/'); window.scrollTo({ top: 0, behavior: 'smooth' });}} 
+              
               className={styles.primaryButton}
             >
               Create Free Account

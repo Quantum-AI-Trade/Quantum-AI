@@ -1,6 +1,33 @@
 .dashboardPreview {
   padding: 6rem 0;
   overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, 
+    rgba(2, 21, 38, 0.95), 
+    rgba(3, 52, 110, 0.9)
+  );
+}
+
+/* Animated grid background */
+.dashboardPreview::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(109, 172, 217, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(109, 172, 217, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 15s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
 }
 
 .grid {
@@ -8,6 +35,8 @@
   grid-template-columns: 1fr;
   gap: 4rem;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 @media (min-width: 1024px) {
@@ -19,6 +48,18 @@
 .imageWrapper {
   position: relative;
   order: 2;
+  animation: imageSlideIn 0.8s ease-out;
+}
+
+@keyframes imageSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @media (min-width: 1024px) {
@@ -30,9 +71,24 @@
 .imageGlow {
   position: absolute;
   inset: -1rem;
-  background-color: rgba(109, 172, 217, 0.2);
-  filter: blur(3rem);
+  background: radial-gradient(circle at 30% 50%, 
+    rgba(109, 172, 217, 0.4), 
+    transparent 70%
+  );
+  filter: blur(40px);
   border-radius: 9999px;
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
 }
 
 .image {
@@ -40,12 +96,41 @@
   width: 100%;
   height: auto;
   border-radius: 1rem;
-  border: 1px solid rgba(109, 172, 217, 0.2);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(109, 172, 217, 0.3);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: imageFloat 5s ease-in-out infinite;
+}
+
+@keyframes imageFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.02);
+  }
+}
+
+.image:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 30px 50px -10px rgba(109, 172, 217, 0.5);
+  border-color: var(--primary);
 }
 
 .content {
   order: 1;
+  animation: contentSlideIn 0.8s ease-out 0.2s both;
+}
+
+@keyframes contentSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @media (min-width: 1024px) {
@@ -59,9 +144,27 @@
   font-weight: 900;
   margin-bottom: 1.5rem;
   line-height: 1.2;
+  animation: titleReveal 1s ease-out;
+}
+
+@keyframes titleReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (min-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
   .title {
     font-size: 3rem;
   }
@@ -69,6 +172,18 @@
 
 .titleAccent {
   color: var(--primary);
+  position: relative;
+  display: inline-block;
+  animation: accentGlow 2s ease-in-out infinite;
+}
+
+@keyframes accentGlow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(109, 172, 217, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(109, 172, 217, 0.8);
+  }
 }
 
 .featuresList {
@@ -80,22 +195,142 @@
 .featureItem {
   display: flex;
   gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, 
+    rgba(109, 172, 217, 0.05), 
+    transparent
+  );
+  animation: featureReveal 0.6s ease-out;
+  animation-fill-mode: both;
+  transition: all 0.3s ease;
+}
+
+.featureItem:nth-child(1) { animation-delay: 0.3s; }
+.featureItem:nth-child(2) { animation-delay: 0.4s; }
+.featureItem:nth-child(3) { animation-delay: 0.5s; }
+
+@keyframes featureReveal {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.featureItem:hover {
+  background: linear-gradient(90deg, 
+    rgba(109, 172, 217, 0.1), 
+    transparent
+  );
+  transform: translateX(10px);
 }
 
 .featureIcon {
   color: var(--primary);
-  background-color: rgba(109, 172, 217, 0.1);
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  background-color: rgba(109, 172, 217, 0.15);
+  padding: 0.75rem;
+  border-radius: 0.75rem;
   height: fit-content;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+    background-color: rgba(109, 172, 217, 0.15);
+  }
+  50% {
+    transform: scale(1.1);
+    background-color: rgba(109, 172, 217, 0.25);
+  }
+}
+
+.featureItem:hover .featureIcon {
+  transform: rotate(10deg) scale(1.1);
+  background-color: rgba(109, 172, 217, 0.25);
+  box-shadow: 0 0 20px rgba(109, 172, 217, 0.3);
 }
 
 .featureTitle {
   font-weight: 700;
   font-size: 1.125rem;
   margin-bottom: 0.25rem;
+  transition: color 0.3s ease;
+}
+
+.featureItem:hover .featureTitle {
+  color: var(--primary);
 }
 
 .featureDescription {
   color: #94a3b8;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+.featureItem:hover .featureDescription {
+  color: #cbd5e1;
+}
+
+/* Floating particles for background */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 50%;
+  opacity: 0.2;
+  pointer-events: none;
+  animation: particleFloat 15s linear infinite;
+  z-index: 0;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.2;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100px);
+    opacity: 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .dashboardPreview {
+    padding: 4rem 0;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .featureItem {
+    padding: 0.75rem;
+  }
+
+  .featureIcon {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+  }
+
+  .featureTitle {
+    font-size: 1rem;
+  }
+
+  .featureDescription {
+    font-size: 0.9rem;
+  }
 }

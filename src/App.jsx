@@ -11,10 +11,10 @@ import Testimonials from './components/Testimonials/Testimonials';
 import FAQ from './components/FAQ/FAQ';
 import CTA from './components/CTA/CTA';
 import Footer from './components/Footer/Footer';
-import Registration from './pages/Registration/Registration';
 import Terms from './pages/Terms/Terms';
-import styles from './App.module.css';
 import Success from './pages/Success/Success';
+import styles from './App.module.css';
+
 // Component to handle scrolling to sections
 const ScrollHandler = () => {
   const location = useLocation();
@@ -78,10 +78,8 @@ function App() {
       <ScrollHandler />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/register" element={<Registration />} />
         <Route path="/terms" element={<Terms />} />
-        <Route path="/success" element={<Success />} />
-        {/* Catch all other routes and redirect to home */}
+        <Route path="/Success" element={<Success />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
       <Footer />

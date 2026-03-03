@@ -1,14 +1,24 @@
 .hero {
   position: relative;
-  padding-top: 10rem;
-  padding-bottom: 5rem;
+  padding-top: 8rem;
+  padding-bottom: 4rem;
   overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
   .hero {
-    padding-top: 12rem;
-    padding-bottom: 6rem;
+    padding-top: 7rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding-top: 6rem;
+    padding-bottom: 2rem;
   }
 }
 
@@ -22,18 +32,26 @@
 .heroGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
-  align-items: center;
+  gap: 2rem;
+  align-items: start;
 }
 
 @media (min-width: 1024px) {
   .heroGrid {
     grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
 }
 
+/* Left Side Content Styles */
 .heroContent {
   max-width: 36rem;
+}
+
+@media (min-width: 1024px) {
+  .heroContent {
+    margin-right: auto;
+  }
 }
 
 .badge {
@@ -47,7 +65,7 @@
   color: var(--primary);
   font-size: 0.75rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .pulse {
@@ -87,22 +105,22 @@
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 900;
   line-height: 1.1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   letter-spacing: -0.02em;
 }
 
 @media (min-width: 768px) {
   .title {
-    font-size: 3.75rem;
+    font-size: 3rem;
   }
 }
 
 @media (min-width: 1024px) {
   .title {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
   }
 }
 
@@ -114,115 +132,781 @@
 }
 
 .description {
-  font-size: 1.125rem;
+  font-size: 0.9rem;
   color: #94a3b8;
-  margin-bottom: 2.5rem;
-  max-width: 36rem;
-  line-height: 1.625;
-}
-
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.primaryButton {
-  background-color: var(--primary);
-  color: var(--background-dark);
-  padding: 1rem 2rem;
-  border-radius: 0.75rem;
-  font-weight: 700;
-  font-size: 1.125rem;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: transform 0.2s ease;
-}
-
-.primaryButton:hover {
-  transform: scale(1.05);
-}
-
-.secondaryButton {
-  background-color: rgba(3, 52, 110, 0.3);
-  border: 1px solid var(--accent-blue);
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 0.75rem;
-  font-weight: 700;
-  font-size: 1.125rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.secondaryButton:hover {
-  background-color: rgba(3, 52, 110, 0.5);
-}
-
-.heroImage {
-  position: relative;
-}
-
-.imageWrapper {
-  border-radius: 1rem;
-  border: 1px solid rgba(109, 172, 217, 0.2);
-  background-color: rgba(3, 52, 110, 0.1);
-  padding: 0.5rem;
-  backdrop-filter: blur(4px);
-  overflow: hidden;
-  box-shadow: 0 20px 25px -5px rgba(109, 172, 217, 0.1), 0 8px 10px -6px rgba(109, 172, 217, 0.1);
-}
-
-.image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  aspect-ratio: 16/9;
-  border-radius: 0.75rem;
-  filter: grayscale(0.2) contrast(1.25);
-}
-
-.statsCard {
-  position: absolute;
-  bottom: -1.5rem;
-  left: -1.5rem;
-  background-color: rgba(2, 21, 38, 0.8);
-  border: 1px solid rgba(109, 172, 217, 0.2);
-  padding: 1rem;
-  border-radius: 0.75rem;
-  backdrop-filter: blur(8px);
-  display: none;
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
 @media (min-width: 768px) {
-  .statsCard {
-    display: block;
+  .description {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
   }
 }
 
-.statsIcon {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 9999px;
-  background-color: rgba(109, 172, 217, 0.2);
+.stats {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0.75rem;
+  flex-wrap: wrap;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.statValue {
+  font-weight: 700;
+  font-size: 0.9rem;
   color: var(--primary);
 }
 
-.statsLabel {
-  font-size: 0.625rem;
-  color: #94a3b8;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.statDivider {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(109, 172, 217, 0.3);
 }
 
-.statsValue {
-  color: white;
+.disclaimer {
+  font-size: 0.65rem;
+  color: #64748b;
+  font-style: italic;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(109, 172, 217, 0.1);
+}
+
+/* Right Side Form Styles */
+.heroForm {
+  position: relative;
+  width: 100%;
+  max-width: 26rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .heroForm {
+    margin: 0 0 0 auto;
+    max-width: 24rem;
+    transform: translateX(1rem);
+  }
+}
+
+@media (min-width: 1280px) {
+  .heroForm {
+    transform: translateX(2rem);
+  }
+}
+
+.formGlow {
+  position: absolute;
+  inset: -0.25rem;
+  background: linear-gradient(to right, rgba(109, 172, 217, 0.3), rgba(226, 226, 182, 0.3));
+  filter: blur(1.5rem);
+  border-radius: 1.5rem;
+  opacity: 0.5;
+}
+
+.formCard {
+  position: relative;
+  background-color: rgba(3, 52, 110, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(109, 172, 217, 0.2);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+  .formCard {
+    padding: 1.75rem;
+  }
+}
+
+.formHeader {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.formTitle {
+  font-size: 1.5rem;
   font-weight: 900;
+  color: white;
+  margin-bottom: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .formTitle {
+    font-size: 1.75rem;
+  }
+}
+
+.formSubtitle {
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+/* Password Strength */
+.passwordStrength {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.35rem;
+}
+
+.strengthMeter {
+  display: flex;
+  gap: 0.2rem;
+  flex: 1;
+  margin-right: 0.75rem;
+}
+
+.strengthBar {
+  flex: 1;
+  height: 0.2rem;
+  background-color: #334155;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.strengthBar.active {
+  background-color: var(--primary);
+}
+
+.strengthText {
+  font-size: 0.65rem;
+  font-weight: 600;
+  min-width: 3.5rem;
+  text-align: right;
+}
+
+/* Select dropdown */
+.select {
+  width: 100%;
+  background-color: rgba(30, 41, 59, 0.5);
+  border: 1px solid #334155;
+  border-radius: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  color: white;
+  font-size: 0.85rem;
+  outline: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+  background-position: right 0.6rem center;
+  background-repeat: no-repeat;
+  background-size: 1.1rem;
+}
+
+.select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(109, 172, 217, 0.2);
+}
+
+.select option {
+  background-color: var(--background-dark);
+  color: white;
+}
+
+.select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.label span {
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+.input {
+  width: 100%;
+  background-color: rgba(30, 41, 59, 0.5);
+  border: 1px solid #334155;
+  border-radius: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  color: white;
+  font-size: 0.85rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(109, 172, 217, 0.2);
+}
+
+.input::placeholder {
+  color: #475569;
+}
+
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Checkbox Group */
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.25rem 0;
+}
+
+.checkbox {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.2rem;
+  border: 1px solid #334155;
+  background-color: rgba(30, 41, 59, 0.5);
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.checkbox:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.checkboxLabel {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 0.6rem;
+  background-color: var(--primary);
+  color: var(--background-dark);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px rgba(109, 172, 217, 0.5);
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--background-dark);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Status Messages */
+.statusMessage {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.6rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  animation: slideIn 0.3s ease-out;
+}
+
+.successMessage {
+  background-color: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #4ade80;
+}
+
+.errorMessage {
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+
+.statusMessage span {
+  font-size: 1.1rem;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sign Up Stats */
+.signupStats {
+  margin: 1.25rem 0 0.5rem;
+  padding: 0.75rem;
+  background-color: rgba(109, 172, 217, 0.05);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(109, 172, 217, 0.1);
+}
+
+.signupStats .statItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
+}
+
+.signupStats .statItem:not(:last-child) {
+  border-bottom: 1px solid rgba(109, 172, 217, 0.1);
+  margin-bottom: 0.4rem;
+  padding-bottom: 0.5rem;
+}
+
+.statIcon {
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.statNumber {
+  font-weight: 900;
+  font-size: 1rem;
+  color: white;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+  }
+
+  .formCard {
+    padding: 1.25rem;
+  }
+
+  .formTitle {
+    font-size: 1.35rem;
+  }
+
+  .formSubtitle {
+    font-size: 0.75rem;
+  }
+
+  .input, .select {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .label {
+    font-size: 0.7rem;
+  }
+
+  .label span {
+    font-size: 0.9rem;
+  }
+
+  .checkboxLabel {
+    font-size: 0.75rem;
+  }
+
+  .submitButton {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .signupStats {
+    padding: 0.6rem;
+  }
+
+  .statNumber {
+    font-size: 0.9rem;
+  }
+
+  .statLabel {
+    font-size: 0.7rem;
+  }
+}
+
+/* Landscape mode */
+@media (max-height: 700px) and (orientation: landscape) {
+  .hero {
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+  }
+
+  .formCard {
+    padding: 1.25rem;
+  }
+
+  .form {
+    gap: 0.75rem;
+  }
+
+  .formGroup {
+    gap: 0.2rem;
+  }
+
+  .input {
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+
+/* Add to your existing Hero.module.css */
+
+/* Hero section animations */
+.hero {
+  animation: heroAppear 1s ease-out;
+}
+
+@keyframes heroAppear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.heroContent {
+  animation: contentSlideIn 0.8s ease-out;
+}
+
+@keyframes contentSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.badge {
+  animation: badgePop 0.6s ease-out 0.2s both;
+}
+
+@keyframes badgePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.title {
+  animation: titleReveal 0.8s ease-out 0.3s both;
+}
+
+@keyframes titleReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.description {
+  animation: descriptionFade 0.8s ease-out 0.4s both;
+}
+
+.description:nth-of-type(1) { animation-delay: 0.4s; }
+.description:nth-of-type(2) { animation-delay: 0.5s; }
+.description:nth-of-type(3) { animation-delay: 0.6s; }
+.description:nth-of-type(4) { animation-delay: 0.7s; }
+
+@keyframes descriptionFade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stats {
+  animation: statsAppear 0.8s ease-out 0.8s both;
+}
+
+@keyframes statsAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.statItem {
+  transition: all 0.3s ease;
+}
+
+.statItem:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
+.disclaimer {
+  animation: disclaimerFade 0.8s ease-out 0.9s both;
+}
+
+@keyframes disclaimerFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Form animations */
+.heroForm {
+  animation: formSlideIn 0.8s ease-out 0.2s both;
+}
+
+@keyframes formSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.formCard {
+  animation: cardFloat 0.8s ease-out;
+  transition: all 0.3s ease;
+}
+
+.formCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 40px -10px rgba(109, 172, 217, 0.3);
+}
+
+.formGlow {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.5;
+    filter: blur(1.5rem);
+  }
+  50% {
+    opacity: 0.8;
+    filter: blur(2rem);
+  }
+}
+
+.formHeader {
+  animation: headerFade 0.6s ease-out 0.3s both;
+}
+
+@keyframes headerFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.formGroup {
+  animation: groupFade 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.formGroup:nth-child(1) { animation-delay: 0.3s; }
+.formGroup:nth-child(2) { animation-delay: 0.4s; }
+.formGroup:nth-child(3) { animation-delay: 0.5s; }
+.formGroup:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes groupFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.input {
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(109, 172, 217, 0.3);
+}
+
+.input:hover:not(:focus) {
+  border-color: rgba(109, 172, 217, 0.5);
+}
+
+.checkboxGroup {
+  animation: checkboxFade 0.5s ease-out 0.7s both;
+}
+
+@keyframes checkboxFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.submitButton {
+  animation: buttonPulse 2s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(109, 172, 217, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(109, 172, 217, 0.6);
+  }
+}
+
+.submitButton:hover {
+  animation: none;
+}
+
+.signupStats {
+  animation: statsSlide 0.8s ease-out 0.8s both;
+}
+
+@keyframes statsSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.signupStats .statItem {
+  transition: all 0.3s ease;
+  animation: statItemFade 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.signupStats .statItem:nth-child(1) { animation-delay: 0.9s; }
+.signupStats .statItem:nth-child(2) { animation-delay: 1s; }
+.signupStats .statItem:nth-child(3) { animation-delay: 1.1s; }
+
+@keyframes statItemFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.signupStats .statItem:hover {
+  transform: translateX(5px);
+  background: rgba(109, 172, 217, 0.1);
+  border-radius: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.statIcon {
+  transition: all 0.3s ease;
+}
+
+.statItem:hover .statIcon {
+  transform: scale(1.2) rotate(10deg);
+  color: white;
 }

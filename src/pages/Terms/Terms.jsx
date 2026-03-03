@@ -72,7 +72,7 @@ const Terms = () => {
               4. Data Privacy
             </h2>
             <div className={styles.sectionContent}>
-              <p>We take your privacy seriously. Your personal information is encrypted and never shared with third parties without your consent. Read our full <Link to="/privacy" className={styles.link}>Privacy Policy</Link> for more details.</p>
+              <p>We take your privacy seriously. Your personal information is encrypted and never shared with third parties without your consent. Read our full Privacy Policy for more details.</p>
             </div>
           </div>
 
@@ -100,7 +100,7 @@ const Terms = () => {
                 onChange={(e) => setAccepted(e.target.checked)}
               />
               <span className={styles.checkboxLabel}>
-                I have read and agree to the Terms & Conditions and <Link to="/privacy">Privacy Policy</Link>
+                I have read and agree to the Terms & Conditions and Privacy Policy
               </span>
             </label>
           </div>
@@ -113,12 +113,12 @@ const Terms = () => {
             >
               Accept & Continue
             </button>
-            <Link to="/register" className={styles.declineButton}>
+            <Link to="/" className={styles.declineButton}>
               Decline
             </Link>
           </div>
 
-          <Link to="/register" className={styles.backLink}>
+          <Link to="/" className={styles.backLink}>
             <span className={`material-symbols-outlined ${styles.backIcon}`}>arrow_back</span>
             Back to Registration
           </Link>

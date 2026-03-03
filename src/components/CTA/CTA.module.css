@@ -1,32 +1,71 @@
 .cta {
   padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .ctaContent {
   position: relative;
   max-width: 80rem;
   margin: 0 auto;
-  background: linear-gradient(to bottom right, var(--primary), var(--accent-blue));
+  background: linear-gradient(135deg, 
+    var(--primary), 
+    var(--accent-blue), 
+    #4a148c
+  );
+  background-size: 300% 300%;
   border-radius: 2rem;
-  padding: 3rem;
+  padding: 4rem 3rem;
   text-align: center;
   color: var(--background-dark);
   overflow: hidden;
+  animation: gradientShift 8s ease-in-out infinite;
+  box-shadow: 0 20px 40px -10px rgba(109, 172, 217, 0.5);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.ctaContent:hover {
+  transform: scale(1.02) translateY(-5px);
+  box-shadow: 0 30px 60px -10px rgba(109, 172, 217, 0.7);
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 @media (min-width: 768px) {
   .ctaContent {
-    padding: 4rem;
+    padding: 5rem 4rem;
   }
 }
 
 .backgroundPattern {
   position: absolute;
   inset: 0;
-  opacity: 0.2;
+  opacity: 0.1;
   pointer-events: none;
-  background-image: radial-gradient(circle at 2px 2px, rgba(2, 21, 38, 0.3) 1px, transparent 0);
-  background-size: 24px 24px;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.3) 2px, transparent 2px),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.3) 2px, transparent 2px),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.3) 2px, transparent 2px),
+    radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0.3) 2px, transparent 2px);
+  background-size: 60px 60px;
+  animation: patternMove 20s linear infinite;
+}
+
+@keyframes patternMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 60px 60px;
+  }
 }
 
 .title {
@@ -35,23 +74,51 @@
   font-weight: 900;
   margin-bottom: 1.5rem;
   line-height: 1.2;
+  animation: titleFloat 3s ease-in-out infinite;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes titleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @media (min-width: 768px) {
   .title {
-    font-size: 3.75rem;
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 4rem;
   }
 }
 
 .description {
   position: relative;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   margin-bottom: 2.5rem;
   max-width: 36rem;
   margin-left: auto;
   margin-right: auto;
   font-weight: 500;
-  opacity: 0.8;
+  opacity: 0.9;
+  animation: descriptionFade 2s ease-in-out infinite;
+}
+
+@keyframes descriptionFade {
+  0%, 100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
 }
 
 .buttons {
@@ -60,6 +127,18 @@
   flex-direction: column;
   gap: 1rem;
   justify-content: center;
+  animation: buttonsReveal 0.8s ease-out;
+}
+
+@keyframes buttonsReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (min-width: 640px) {
@@ -74,40 +153,180 @@
   padding: 1.25rem 2.5rem;
   border-radius: 1rem;
   font-weight: 900;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: buttonGlow 2s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+  0%, 100% {
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 20px 30px -5px rgba(109, 172, 217, 0.5);
+  }
+}
+
+.primaryButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent
+  );
+  transition: left 0.5s ease;
 }
 
 .primaryButton:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) translateY(-3px);
+  background: linear-gradient(135deg, var(--background-dark), #1a2a3a);
+  box-shadow: 0 30px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+.primaryButton:hover::before {
+  left: 100%;
+}
+
+.primaryButton:active {
+  transform: scale(0.98) translateY(0);
 }
 
 .secondaryButton {
   background-color: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(4px);
   color: var(--background-dark);
   padding: 1.25rem 2.5rem;
   border-radius: 1rem;
   font-weight: 900;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.secondaryButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.3), 
+    transparent
+  );
+  transition: left 0.5s ease;
 }
 
 .secondaryButton:hover {
   background-color: rgba(255, 255, 255, 0.3);
+  border-color: white;
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 20px 30px -5px rgba(255, 255, 255, 0.2);
+}
+
+.secondaryButton:hover::before {
+  left: 100%;
+}
+
+.secondaryButton:active {
+  transform: scale(0.98) translateY(0);
 }
 
 .disclaimer {
   position: relative;
   margin-top: 2rem;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  opacity: 0.6;
+  opacity: 0.7;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
+  animation: disclaimerPulse 2s ease-in-out infinite;
+}
+
+@keyframes disclaimerPulse {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+    letter-spacing: 0.15em;
+  }
+}
+
+/* Floating elements animation */
+.ctaContent::before,
+.ctaContent::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+  border-radius: 50%;
+  animation: floatElement 8s ease-in-out infinite;
+}
+
+.ctaContent::before {
+  top: -75px;
+  left: -75px;
+}
+
+.ctaContent::after {
+  bottom: -75px;
+  right: -75px;
+  animation-delay: -4s;
+}
+
+@keyframes floatElement {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, 30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, -20px) scale(0.9);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .cta {
+    padding: 4rem 0;
+  }
+
+  .ctaContent {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .disclaimer {
+    font-size: 0.8rem;
+  }
 }

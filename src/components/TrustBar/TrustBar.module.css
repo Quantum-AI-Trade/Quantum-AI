@@ -2,7 +2,37 @@
   padding: 3rem 0;
   border-top: 1px solid rgba(109, 172, 217, 0.05);
   border-bottom: 1px solid rgba(109, 172, 217, 0.05);
-  background-color: var(--background-dark);
+  background: linear-gradient(90deg, 
+    rgba(2, 21, 38, 0.95), 
+    rgba(3, 52, 110, 0.95), 
+    rgba(2, 21, 38, 0.95)
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.trustBar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(109, 172, 217, 0.1), 
+    transparent
+  );
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
 }
 
 .title {
@@ -13,6 +43,18 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin-bottom: 2rem;
+  animation: titleReveal 0.8s ease-out;
+}
+
+@keyframes titleReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .logos {
@@ -21,8 +63,20 @@
   justify-content: center;
   align-items: center;
   gap: 3rem;
-  opacity: 0.4;
-  transition: opacity 0.3s ease;
+  opacity: 0.6;
+  transition: all 0.5s ease;
+  animation: logosAppear 1s ease-out 0.2s both;
+}
+
+@keyframes logosAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
 }
 
 .logos:hover {
@@ -37,13 +91,123 @@
   font-weight: 900;
   font-size: 1.25rem;
   filter: grayscale(1);
-  transition: filter 0.3s ease;
+  transition: all 0.3s ease;
+  animation: logoFloat 3s ease-in-out infinite;
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.logoItem::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 2rem;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--primary), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.logoItem:hover::before {
+  opacity: 1;
+}
+
+.logoItem:nth-child(1) { animation-delay: 0s; }
+.logoItem:nth-child(2) { animation-delay: 0.2s; }
+.logoItem:nth-child(3) { animation-delay: 0.4s; }
+.logoItem:nth-child(4) { animation-delay: 0.6s; }
+.logoItem:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 .logos:hover .logoItem {
   filter: grayscale(0);
+  animation-play-state: paused;
+}
+
+.logoItem:hover {
+  transform: scale(1.1) rotate(2deg);
+  background: rgba(109, 172, 217, 0.1);
+  box-shadow: 0 5px 15px rgba(109, 172, 217, 0.2);
 }
 
 .logoItem span {
   color: var(--primary);
+  transition: all 0.3s ease;
 }
+
+.logoItem:hover span {
+  transform: rotate(360deg);
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .trustBar {
+    padding: 2rem 0;
+  }
+
+  .title {
+    font-size: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .logos {
+    gap: 2rem;
+  }
+
+  .logoItem {
+    font-size: 1rem;
+    padding: 0.25rem 0.75rem;
+  }
+
+  .logoItem span {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logos {
+    gap: 1.5rem;
+  }
+
+  .logoItem {
+    font-size: 0.9rem;
+  }
+}
+
+/* Entrance animation for logos on scroll */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.logoItem {
+  animation: slideIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.logoItem:nth-child(1) { animation-delay: 0.1s; }
+.logoItem:nth-child(2) { animation-delay: 0.2s; }
+.logoItem:nth-child(3) { animation-delay: 0.3s; }
+.logoItem:nth-child(4) { animation-delay: 0.4s; }
+.logoItem:nth-child(5) { animation-delay: 0.5s; }

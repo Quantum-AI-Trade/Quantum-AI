@@ -17,7 +17,7 @@ const Navbar = () => {
   }, []);
 
   const handleGetStarted = () => {
-    navigate('/register');
+    navigate('/');
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
