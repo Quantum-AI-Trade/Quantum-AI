@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styles from './Hero.module.css';
 import GOOGLE_SCRIPT_URL from '../../config/googleSheets';
 
 const Hero = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: '',
@@ -43,8 +45,8 @@ const Hero = () => {
   };
 
   const getStrengthText = () => {
-    const texts = ['Very Weak', 'Weak', 'Fair', 'Good', 'Strong'];
-    return texts[passwordStrength - 1] || 'Very Weak';
+    const texts = [t('hero.form.veryWeak'), t('hero.form.weak'), t('hero.form.fair'), t('hero.form.good'), t('hero.form.strong')];
+    return texts[passwordStrength - 1] || t('hero.form.veryWeak');
   };
 
   const getStrengthColor = () => {
@@ -81,7 +83,7 @@ const Hero = () => {
       setSubmitStatus({
         show: true,
         success: false,
-        message: 'Please accept the Terms & Conditions to continue.'
+        message: t('hero.form.termsError')
       });
       return;
     }
@@ -105,7 +107,7 @@ const Hero = () => {
       setSubmitStatus({
         show: true,
         success: true,
-        message: 'Account created successfully! Redirecting...'
+        message: t('hero.form.success')
       });
       
       setFormData({
@@ -117,7 +119,6 @@ const Hero = () => {
       });
       setPasswordStrength(0);
       
-      // Redirect to home after 2 seconds
       setTimeout(() => {
         navigate('/Success');
       }, 2000);
@@ -125,7 +126,7 @@ const Hero = () => {
       setSubmitStatus({
         show: true,
         success: false,
-        message: 'Registration failed. Please try again.'
+        message: t('hero.form.error')
       });
     }
     
@@ -141,54 +142,33 @@ const Hero = () => {
           <div className={styles.heroContent}>
             <div className={styles.badge}>
               <span className={styles.pulse}></span>
-              QUANTUM AI • EST. 2022
+              {t('hero.badge')}
             </div>
             
             <h1 className={styles.title}>
-              <span className={styles.gradientText}>Quantum AI</span>
+              <span className={styles.gradientText}>{t('hero.title')}</span>
             </h1>
             
-            <p className={styles.description}>
-              Quantum AI, established in 2022, has been a pioneer in quantum computing, 
-              significantly influencing the trading sector. Experience how quantum innovation 
-              and AI can revolutionise your market tactics.
-            </p>
-
-            <p className={styles.description}>
-              Quantum AI unites advanced quantum-inspired algorithms with modern artificial 
-              intelligence to help you analyse complex market conditions with greater clarity, 
-              speed, and confidence.
-            </p>
-
-            <p className={styles.description}>
-              Our technology is developed by Quantum AI Ltd — a UK-based research and software 
-              organisation focused on bringing next-generation computational methods to financial 
-              analysis.
-            </p>
-
-            <p className={styles.description}>
-              Create your account using the form beside this text and gain access to the platform, 
-              intelligent analysis tools, and a secure environment designed to support informed 
-              trading decisions.
-            </p>
+            <p className={styles.description}>{t('hero.description1')}</p>
+            <p className={styles.description}>{t('hero.description2')}</p>
+            <p className={styles.description}>{t('hero.description3')}</p>
+            <p className={styles.description}>{t('hero.description4')}</p>
 
             <div className={styles.stats}>
               <div className={styles.statItem}>
-                <span className={styles.statValue}>Automated Trades</span>
+                <span className={styles.statValue}>{t('hero.automatedTrades')}</span>
               </div>
               <div className={styles.statDivider}></div>
               <div className={styles.statItem}>
-                <span className={styles.statValue}>Quantum Computing</span>
+                <span className={styles.statValue}>{t('hero.quantumComputing')}</span>
               </div>
               <div className={styles.statDivider}></div>
               <div className={styles.statItem}>
-                <span className={styles.statValue}>99.9% Uptime</span>
+                <span className={styles.statValue}>{t('hero.uptime')}</span>
               </div>
             </div>
 
-            <p className={styles.disclaimer}>
-              All trading carries risk. No profits are guaranteed.
-            </p>
+            <p className={styles.disclaimer}>{t('hero.disclaimer')}</p>
           </div>
 
           {/* Right Side: Sign Up Form */}
@@ -196,8 +176,8 @@ const Hero = () => {
             <div className={styles.formGlow}></div>
             <div className={styles.formCard}>
               <div className={styles.formHeader}>
-                <h2 className={styles.formTitle}>Create Account</h2>
-                <p className={styles.formSubtitle}>Start your AI-powered trading journey</p>
+                <h2 className={styles.formTitle}>{t('hero.form.title')}</h2>
+                <p className={styles.formSubtitle}>{t('hero.form.subtitle')}</p>
               </div>
 
               {submitStatus.show && (
@@ -213,14 +193,14 @@ const Hero = () => {
                 <div className={styles.formGroup}>
                   <label className={styles.label}>
                     <span className="material-symbols-outlined">person</span>
-                    Full Name
+                    {t('hero.form.fullName')}
                   </label>
                   <input
                     type="text"
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleChange}
-                    placeholder="John Doe"
+                    placeholder={t('hero.form.fullName')}
                     className={styles.input}
                     required
                     disabled={isSubmitting}
@@ -230,14 +210,14 @@ const Hero = () => {
                 <div className={styles.formGroup}>
                   <label className={styles.label}>
                     <span className="material-symbols-outlined">email</span>
-                    Email Address
+                    {t('hero.form.email')}
                   </label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="john@example.com"
+                    placeholder={t('hero.form.email')}
                     className={styles.input}
                     required
                     disabled={isSubmitting}
@@ -247,20 +227,19 @@ const Hero = () => {
                 <div className={styles.formGroup}>
                   <label className={styles.label}>
                     <span className="material-symbols-outlined">lock</span>
-                    Password
+                    {t('hero.form.password')}
                   </label>
                   <input
                     type="password"
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
-                    placeholder="••••••••"
+                    placeholder={t('hero.form.password')}
                     className={styles.input}
                     required
                     disabled={isSubmitting}
                   />
                   
-                  {/* Password Strength Meter */}
                   {formData.password && (
                     <div className={styles.passwordStrength}>
                       <div className={styles.strengthMeter}>
@@ -282,7 +261,7 @@ const Hero = () => {
                 <div className={styles.formGroup}>
                   <label className={styles.label}>
                     <span className="material-symbols-outlined">analytics</span>
-                    Trading Level
+                    {t('hero.form.tradingLevel')}
                   </label>
                   <select
                     name="tradingLevel"
@@ -291,9 +270,9 @@ const Hero = () => {
                     className={styles.select}
                     disabled={isSubmitting}
                   >
-                    <option value="beginner">Beginner</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="expert">Expert</option>
+                    <option value="beginner">{t('hero.form.beginner')}</option>
+                    <option value="intermediate">{t('hero.form.intermediate')}</option>
+                    <option value="expert">{t('hero.form.expert')}</option>
                   </select>
                 </div>
 
@@ -309,7 +288,7 @@ const Hero = () => {
                     disabled={isSubmitting}
                   />
                   <label htmlFor="terms" className={styles.checkboxLabel}>
-                    I agree to the <a href="#/terms" className={styles.link}>Terms & Conditions</a>
+                    {t('hero.form.terms')} <a href="#/terms" className={styles.link}>{t('hero.form.termsLink')}</a>
                   </label>
                 </div>
 
@@ -321,42 +300,37 @@ const Hero = () => {
                   {isSubmitting ? (
                     <>
                       <span className={styles.spinner}></span>
-                      Creating Account...
+                      {t('hero.form.creating')}
                     </>
                   ) : (
-                    'Create Free Account'
+                    t('hero.form.button')
                   )}
                 </button>
               </form>
 
-              {/* Stats below button */}
               <div className={styles.signupStats}>
                 <div className={styles.statItem}>
-                  <span className={styles.statIcon} className="material-symbols-outlined">group</span>
+                  <span className={`${styles.statIcon} material-symbols-outlined`}>group</span>
                   <div className={styles.statInfo}>
                     <span className={styles.statNumber}>109</span>
-                    <span className={styles.statLabel}>users joined today</span>
+                    <span className={styles.statLabel}>{t('hero.form.usersJoined')}</span>
                   </div>
                 </div>
 
                 <div className={styles.statItem}>
-                  <span className={styles.statIcon} className="material-symbols-outlined">sync_alt</span>
+                  <span className={`${styles.statIcon} material-symbols-outlined`}>sync_alt</span>
                   <div className={styles.statInfo}>
-                    <span className={styles.statLabel}>Withdraw anytime</span>
+                    <span className={styles.statLabel}>{t('hero.form.withdraw')}</span>
                   </div>
                 </div>
 
                 <div className={styles.statItem}>
-                  <span className={styles.statIcon} className="material-symbols-outlined">encrypted</span>
+                  <span className={`${styles.statIcon} material-symbols-outlined`}>encrypted</span>
                   <div className={styles.statInfo}>
-                    <span className={styles.statLabel}>Secure & encrypted access</span>
+                    <span className={styles.statLabel}>{t('hero.form.secure')}</span>
                   </div>
                 </div>
               </div>
-
-             
-
-
             </div>
           </div>
         </div>

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styles from './Terms.module.css';
 
 const Terms = () => {
+  const { t } = useTranslation();
   const [accepted, setAccepted] = useState(false);
   const navigate = useNavigate();
 
@@ -24,31 +26,30 @@ const Terms = () => {
     <div className={styles.termsPage}>
       <div className={styles.container}>
         <div className={styles.termsCard}>
-          <h1 className={styles.title}>Terms & Conditions</h1>
-          <p className={styles.lastUpdated}>Last Updated: February 2026</p>
+          <h1 className={styles.title}>{t('terms.title')}</h1>
+          <p className={styles.lastUpdated}>{t('terms.lastUpdated')}</p>
 
           <div className={styles.section}>
             <h2 className={styles.sectionTitle}>
               <span className="material-symbols-outlined">gavel</span>
-              1. Acceptance of Terms
+              {t('terms.sections.acceptance.title')}
             </h2>
             <div className={styles.sectionContent}>
-              <p>By accessing and using Quantum AI Trading Platform, you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to these terms, please do not use our services.</p>
+              <p>{t('terms.sections.acceptance.content')}</p>
             </div>
           </div>
 
           <div className={styles.section}>
             <h2 className={styles.sectionTitle}>
               <span className="material-symbols-outlined">psychology</span>
-              2. AI Trading Services
+              {t('terms.sections.aiServices.title')}
             </h2>
             <div className={styles.sectionContent}>
-              <p>Our platform provides AI-powered trading tools and analytics. Important points to understand:</p>
+              <p>{t('terms.sections.aiServices.content')}</p>
               <ul className={styles.list}>
-                <li className={styles.listItem}>The AI predictions are for informational purposes only</li>
-                <li className={styles.listItem}>Past performance does not guarantee future results</li>
-                <li className={styles.listItem}>You are solely responsible for your trading decisions</li>
-                <li className={styles.listItem}>We do not guarantee profits or protect against losses</li>
+                {t('terms.sections.aiServices.points', { returnObjects: true }).map((point, index) => (
+                  <li key={index} className={styles.listItem}>{point}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -56,37 +57,38 @@ const Terms = () => {
           <div className={styles.section}>
             <h2 className={styles.sectionTitle}>
               <span className="material-symbols-outlined">shield</span>
-              3. Risk Disclosure
+              {t('terms.sections.riskDisclosure.title')}
             </h2>
             <div className={styles.sectionContent}>
               <div className={styles.important}>
-                <strong className={styles.highlight}>IMPORTANT:</strong> Trading cryptocurrencies and other financial instruments carries significant risk. You may lose some or all of your invested capital.
+                <strong className={styles.highlight}>{t('terms.sections.riskDisclosure.important')}</strong>{' '}
+                {t('terms.sections.riskDisclosure.content')}
               </div>
-              <p>You should carefully consider whether trading is suitable for you in light of your financial circumstances.</p>
+              <p>{t('terms.sections.riskDisclosure.advice')}</p>
             </div>
           </div>
 
           <div className={styles.section}>
             <h2 className={styles.sectionTitle}>
               <span className="material-symbols-outlined">encrypted</span>
-              4. Data Privacy
+              {t('terms.sections.dataPrivacy.title')}
             </h2>
             <div className={styles.sectionContent}>
-              <p>We take your privacy seriously. Your personal information is encrypted and never shared with third parties without your consent. Read our full Privacy Policy for more details.</p>
+              <p>{t('terms.sections.dataPrivacy.content')}</p>
             </div>
           </div>
 
           <div className={styles.section}>
             <h2 className={styles.sectionTitle}>
               <span className="material-symbols-outlined">sync_alt</span>
-              5. API Usage
+              {t('terms.sections.apiUsage.title')}
             </h2>
             <div className={styles.sectionContent}>
-              <p>When connecting exchange APIs:</p>
+              <p>{t('terms.sections.apiUsage.content')}</p>
               <ul className={styles.list}>
-                <li className={styles.listItem}>We only require read and trade permissions</li>
-                <li className={styles.listItem}>Withdrawal permissions are never requested</li>
-                <li className={styles.listItem}>You can revoke access at any time</li>
+                {t('terms.sections.apiUsage.points', { returnObjects: true }).map((point, index) => (
+                  <li key={index} className={styles.listItem}>{point}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -100,7 +102,7 @@ const Terms = () => {
                 onChange={(e) => setAccepted(e.target.checked)}
               />
               <span className={styles.checkboxLabel}>
-                I have read and agree to the Terms & Conditions and Privacy Policy
+                {t('terms.agreement.text')} <Link to="/privacy">{t('terms.agreement.privacyLink')}</Link>
               </span>
             </label>
           </div>
@@ -111,16 +113,16 @@ const Terms = () => {
               onClick={handleAccept}
               disabled={!accepted}
             >
-              Accept & Continue
+              {t('terms.buttons.accept')}
             </button>
-            <Link to="/" className={styles.declineButton}>
-              Decline
+            <Link to="/register" className={styles.declineButton}>
+              {t('terms.buttons.decline')}
             </Link>
           </div>
 
-          <Link to="/" className={styles.backLink}>
+          <Link to="/register" className={styles.backLink}>
             <span className={`material-symbols-outlined ${styles.backIcon}`}>arrow_back</span>
-            Back to Registration
+            {t('terms.backLink')}
           </Link>
         </div>
       </div>

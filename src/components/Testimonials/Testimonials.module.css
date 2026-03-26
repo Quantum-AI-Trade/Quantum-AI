@@ -413,3 +413,166 @@
     font-size: 0.75rem;
   }
 }
+
+/* Add or update these styles in your Testimonials.module.css */
+
+/* Author image wrapper and glow effects */
+.author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+.authorImageWrapper {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+  flex-shrink: 0;
+}
+
+.authorImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(109, 172, 217, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.imageGlow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, 
+    var(--primary), 
+    var(--accent-cream)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.card:hover .imageGlow {
+  opacity: 0.6;
+  animation: pulseGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.card:hover .authorImage {
+  transform: scale(1.05);
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(109, 172, 217, 0.4);
+}
+
+.authorInfo {
+  flex: 1;
+}
+
+.authorName {
+  font-weight: 700;
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  transition: color 0.3s ease;
+}
+
+.card:hover .authorName {
+  color: var(--primary);
+}
+
+.authorRole {
+  font-size: 0.75rem;
+  color: #64748b;
+  transition: color 0.3s ease;
+}
+
+.card:hover .authorRole {
+  color: #94a3b8;
+}
+
+/* Rating styles */
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.starFilled {
+  color: #fbbf24;
+  font-variation-settings: 'FILL' 1;
+  font-size: 1.2rem;
+}
+
+.starHalf {
+  color: #fbbf24;
+  font-size: 1.2rem;
+}
+
+.ratingValue {
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* Quote styles */
+.quote {
+  color: #cbd5e1;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  position: relative;
+  padding-left: 1rem;
+  border-left: 3px solid var(--primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .authorImageWrapper {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .authorName {
+    font-size: 0.9rem;
+  }
+
+  .authorRole {
+    font-size: 0.7rem;
+  }
+
+  .quote {
+    font-size: 0.85rem;
+    padding-left: 0.75rem;
+  }
+
+  .rating {
+    gap: 0.2rem;
+  }
+
+  .starFilled,
+  .starHalf {
+    font-size: 1rem;
+  }
+
+  .ratingValue {
+    font-size: 0.75rem;
+  }
+}

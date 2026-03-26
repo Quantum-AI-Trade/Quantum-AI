@@ -1,8 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styles from './CTA.module.css';
 
 const CTA = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   return (
@@ -11,25 +13,23 @@ const CTA = () => {
         <div className={styles.ctaContent}>
           <div className={styles.backgroundPattern}></div>
           
-          <h2 className={styles.title}>
-            Start your AI trading <br />journey today
-          </h2>
+          <h2 className={styles.title}>{t('cta.title')}</h2>
           
-          <p className={styles.description}>
-            Join thousands of smart investors who have automated their financial future with Quantum AI.
-          </p>
+          <p className={styles.description}>{t('cta.description')}</p>
           
           <div className={styles.buttons}>
             <button 
-              onClick={() => {navigate('/'); window.scrollTo({ top: 0, behavior: 'smooth' });}} 
-              
+              onClick={() => navigate('/register')} 
               className={styles.primaryButton}
             >
-              Create Free Account
+              {t('cta.createAccount')}
+            </button>
+            <button className={styles.secondaryButton}>
+              {t('cta.viewPricing')}
             </button>
           </div>
           
-          <p className={styles.disclaimer}>No credit card required</p>
+          <p className={styles.disclaimer}>{t('cta.disclaimer')}</p>
         </div>
       </div>
     </section>

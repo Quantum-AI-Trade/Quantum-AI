@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './FAQ.module.css';
 
 const FAQ = () => {
+  const { t } = useTranslation();
   const [openIndex, setOpenIndex] = useState(0);
   const detailsRefs = useRef([]);
 
-  // Mouse move effect for glow on FAQ items
   useEffect(() => {
     const handleMouseMove = (e, index) => {
       const details = detailsRefs.current[index];
@@ -33,37 +34,17 @@ const FAQ = () => {
     };
   }, []);
 
-  // Animation for particles
-  useEffect(() => {
-    const particles = document.querySelectorAll(`.${styles.particle}`);
-    particles.forEach((particle, index) => {
-      particle.style.animationDelay = `${index * 2}s`;
-    });
-  }, []);
-
   const faqs = [
-    {
-      question: 'Is my capital safe with Quantum AI?',
-      answer: 'Yes. We never have direct access to your funds. The platform connects to your exchange via API keys with restricted withdrawal permissions. Your assets stay in your own exchange wallet.'
-    },
-    {
-      question: 'What is the minimum investment required?',
-      answer: 'There is no minimum to use the platform itself, but most exchanges require at least $50-$100 to begin executing trades effectively.'
-    },
-    {
-      question: 'Do I need prior trading experience?',
-      answer: 'Not at all. While experienced traders can use our advanced tools, beginners can start with our "AI-Smart" pre-configured bots that require zero technical knowledge.'
-    },
-    {
-      question: 'Which exchanges are supported?',
-      answer: 'We currently support Binance, Coinbase, Kraken, OKX, and Bybit. More exchanges are being added monthly.'
-    }
+    { questionKey: 'q1', answerKey: 'a1' },
+    { questionKey: 'q2', answerKey: 'a2' },
+    { questionKey: 'q3', answerKey: 'a3' },
+    { questionKey: 'q4', answerKey: 'a4' }
   ];
 
   return (
     <section className={styles.faq} id="faq">
       <div className="container">
-        <h2 className={styles.title}>Frequently Asked Questions</h2>
+        <h2 className={styles.title}>{t('faq.title')}</h2>
         
         <div className={styles.accordion}>
           {faqs.map((faq, index) => (
@@ -78,20 +59,19 @@ const FAQ = () => {
               ref={el => detailsRefs.current[index] = el}
             >
               <summary className={styles.summary}>
-                {faq.question}
+                {t(`faq.${faq.questionKey}`)}
                 <span className={`material-symbols-outlined ${styles.summaryIcon}`}>
                   expand_more
                 </span>
               </summary>
               <div className={styles.answer}>
-                {faq.answer}
+                {t(`faq.${faq.answerKey}`)}
               </div>
             </details>
           ))}
         </div>
       </div>
 
-      {/* Floating particles for background animation */}
       <div className={styles.particle} style={{ left: '5%', top: '10%' }}></div>
       <div className={styles.particle} style={{ left: '15%', top: '30%' }}></div>
       <div className={styles.particle} style={{ left: '25%', top: '60%' }}></div>

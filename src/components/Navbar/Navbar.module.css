@@ -87,3 +87,14 @@
   background-color: rgba(109, 172, 217, 0.9);
   transform: scale(1.05);
 }
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .rightSection {
+    gap: 0.5rem;
+  }
+}

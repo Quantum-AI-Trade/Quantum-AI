@@ -6,6 +6,16 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .container {
@@ -14,29 +24,68 @@
 }
 
 .card {
-  background-color: rgba(3, 52, 110, 0.1);
+  background: linear-gradient(135deg, 
+    rgba(3, 52, 110, 0.2), 
+    rgba(2, 21, 38, 0.3)
+  );
   border: 1px solid rgba(109, 172, 217, 0.2);
   border-radius: 1.5rem;
   padding: 3rem 2rem;
   text-align: center;
   backdrop-filter: blur(10px);
-  animation: fadeIn 0.5s ease-out;
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .iconWrapper {
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
-  background-color: rgba(34, 197, 94, 0.1);
+  background: linear-gradient(135deg, 
+    rgba(34, 197, 94, 0.2), 
+    rgba(34, 197, 94, 0.05)
+  );
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.5rem;
+  animation: scaleIn 0.5s ease-out 0.2s both;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .iconWrapper span {
   font-size: 3rem;
   color: #4ade80;
+  animation: bounce 0.5s ease-out 0.5s both;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
 }
 
 .title {
@@ -44,18 +93,32 @@
   font-weight: 900;
   color: white;
   margin-bottom: 1rem;
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .message {
   color: #94a3b8;
   line-height: 1.6;
   margin-bottom: 2rem;
+  animation: fadeInUp 0.6s ease-out 0.4s both;
 }
 
 .buttons {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  animation: fadeInUp 0.6s ease-out 0.5s both;
 }
 
 @media (min-width: 640px) {
@@ -67,19 +130,20 @@
 
 .primaryButton {
   padding: 0.875rem 2rem;
-  background-color: var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--accent-blue));
   color: var(--background-dark);
   border: none;
   border-radius: 0.75rem;
   font-weight: 700;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   display: inline-block;
+  text-align: center;
 }
 
 .primaryButton:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(109, 172, 217, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(109, 172, 217, 0.4);
 }
 
 .secondaryButton {
@@ -90,22 +154,27 @@
   border-radius: 0.75rem;
   font-weight: 700;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   display: inline-block;
+  text-align: center;
 }
 
 .secondaryButton:hover {
   border-color: var(--primary);
   background-color: rgba(109, 172, 217, 0.1);
+  transform: translateY(-2px);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+@media (max-width: 640px) {
+  .card {
+    padding: 2rem 1.5rem;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .message {
+    font-size: 0.9rem;
   }
 }

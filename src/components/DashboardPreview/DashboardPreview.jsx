@@ -1,24 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './DashboardPreview.module.css';
 
 const DashboardPreview = () => {
+  const { t } = useTranslation();
+
   const features = [
     {
       icon: 'analytics',
-      title: 'Live Profit Tracking',
-      description: 'Monitor your realized and unrealized PNL in real-time across all your connected accounts.'
+      titleKey: 'profitTracking.title',
+      descriptionKey: 'profitTracking.description'
     },
     {
       icon: 'troubleshoot',
-      title: 'Risk Management Controls',
-      description: 'Advanced stop-loss, take-profit, and trailing-drawdown settings to protect your capital.'
+      titleKey: 'riskManagement.title',
+      descriptionKey: 'riskManagement.description'
     },
     {
       icon: 'history',
-      title: 'Comprehensive Trade Logs',
-      description: 'Audit every single move the AI makes with detailed reasoning for each execution.'
+      titleKey: 'tradeLogs.title',
+      descriptionKey: 'tradeLogs.description'
     }
   ];
+
+  useEffect(() => {
+    const particles = document.querySelectorAll(`.${styles.particle}`);
+    particles.forEach((particle, index) => {
+      particle.style.animationDelay = `${index * 2}s`;
+    });
+  }, []);
 
   return (
     <section className={styles.dashboardPreview}>
@@ -35,8 +45,8 @@ const DashboardPreview = () => {
           
           <div className={styles.content}>
             <h2 className={styles.title}>
-              A Control Center <br />
-              <span className={styles.titleAccent}>Built for Winners</span>
+              {t('dashboard.title')} <br />
+              <span className={styles.titleAccent}>{t('dashboard.titleAccent')}</span>
             </h2>
             
             <div className={styles.featuresList}>
@@ -46,8 +56,8 @@ const DashboardPreview = () => {
                     {feature.icon}
                   </span>
                   <div>
-                    <h4 className={styles.featureTitle}>{feature.title}</h4>
-                    <p className={styles.featureDescription}>{feature.description}</p>
+                    <h4 className={styles.featureTitle}>{t(`dashboard.${feature.titleKey}`)}</h4>
+                    <p className={styles.featureDescription}>{t(`dashboard.${feature.descriptionKey}`)}</p>
                   </div>
                 </div>
               ))}
@@ -55,6 +65,12 @@ const DashboardPreview = () => {
           </div>
         </div>
       </div>
+
+      <div className={styles.particle} style={{ left: '10%' }}></div>
+      <div className={styles.particle} style={{ left: '30%' }}></div>
+      <div className={styles.particle} style={{ left: '50%' }}></div>
+      <div className={styles.particle} style={{ left: '70%' }}></div>
+      <div className={styles.particle} style={{ left: '90%' }}></div>
     </section>
   );
 };

@@ -1,37 +1,46 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './Features.module.css';
 
 const Features = () => {
+  const { t } = useTranslation();
+
   const features = [
     {
       icon: 'touch_app',
-      title: 'User-friendly Interface',
-      description: 'Our trading interface is so easy even a child can use it. A member of the platform will call you and guide you through the entire process to ensure maximum returns.'
+      titleKey: 'userFriendly.title',
+      descriptionKey: 'userFriendly.description',
+      badge: null
     },
     {
       icon: 'smart_toy',
-      title: 'Automated Trading',
-      description: 'Our automated trading bots can do all the work for you. No need to be an expert at trading. Earn while you sleep.'
+      titleKey: 'automated.title',
+      descriptionKey: 'automated.description',
+      badge: null
     },
     {
       icon: 'verified',
-      title: 'Trusted Trading Platforms',
-      description: 'Quantum AI is based in the UK, and we only work and partner with UK companies. Stringent and well-known platforms will be encouraged.'
+      titleKey: 'trusted.title',
+      descriptionKey: 'trusted.description',
+      badge: null
     },
     {
       icon: 'memory',
-      title: 'Quantum Volume (QV) Score',
-      description: 'Our quantum computing system has achieved a quantum volume (QV) 14,802. Achieving a high score on the industry-recognised QV benchmark, developed by IBM to test quantum computers\' capability.'
+      titleKey: 'quantum.title',
+      descriptionKey: 'quantum.description',
+      badge: 'certified'
     },
     {
       icon: 'payments',
-      title: 'Minimum $250 Deposit',
-      description: 'Try with a small deposit of $250. We allow small risk demos so you can test our trading bot on the market before larger deposits.'
+      titleKey: 'deposit.title',
+      descriptionKey: 'deposit.description',
+      badge: null
     },
     {
       icon: 'security',
-      title: 'Uncompromised Security',
-      description: 'Your data is safe with us. Trust us; we keep our quantum computing secret; emails are safe.'
+      titleKey: 'security.title',
+      descriptionKey: 'security.description',
+      badge: 'guidance'
     }
   ];
 
@@ -39,10 +48,8 @@ const Features = () => {
     <section className={styles.features} id="features">
       <div className="container">
         <div className={styles.header}>
-          <h2 className={styles.title}>Why Choose Quantum AI</h2>
-          <p className={styles.subtitle}>
-            Experience the future of trading with our cutting-edge quantum computing technology
-          </p>
+          <h2 className={styles.title}>{t('features.title')}</h2>
+          <p className={styles.subtitle}>{t('features.subtitle')}</p>
         </div>
         
         <div className={styles.grid}>
@@ -53,8 +60,23 @@ const Features = () => {
                   {feature.icon}
                 </span>
               </div>
-              <h3 className={styles.cardTitle}>{feature.title}</h3>
-              <p className={styles.cardDescription}>{feature.description}</p>
+              
+              {feature.badge === 'certified' && (
+                <div className={styles.certifiedBadge}>
+                  <span className="material-symbols-outlined">verified</span>
+                  {t('features.certifiedBadge')}
+                </div>
+              )}
+              
+              {feature.badge === 'guidance' && (
+                <div className={styles.guidanceBadge}>
+                  <span className="material-symbols-outlined">psychology_alt</span>
+                  {t('features.guidanceBadge')}
+                </div>
+              )}
+              
+              <h3 className={styles.cardTitle}>{t(`features.${feature.titleKey}`)}</h3>
+              <p className={styles.cardDescription}>{t(`features.${feature.descriptionKey}`)}</p>
             </div>
           ))}
         </div>

@@ -1,0 +1,209 @@
+{
+  "navbar": {
+    "home": "Home",
+    "features": "Features",
+    "howItWorks": "How It Works",
+    "reviews": "Reviews",
+    "faq": "FAQ",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "badge": "QUANTUM AI • EST. 2022",
+    "title": "Quantum AI",
+    "description1": "Quantum AI, established in 2022, has been a pioneer in quantum computing, significantly influencing the trading sector. Experience how quantum innovation and AI can revolutionise your market tactics.",
+    "description2": "Quantum AI unites advanced quantum-inspired algorithms with modern artificial intelligence to help you analyse complex market conditions with greater clarity, speed, and confidence.",
+    "description3": "Our technology is developed by Quantum AI Ltd — a UK-based research and software organisation focused on bringing next-generation computational methods to financial analysis.",
+    "description4": "Create your account using the form beside this text and gain access to the platform, intelligent analysis tools, and a secure environment designed to support informed trading decisions.",
+    "automatedTrades": "Automated Trades",
+    "quantumComputing": "Quantum Computing",
+    "uptime": "99.9% Uptime",
+    "disclaimer": "All trading carries risk. No profits are guaranteed.",
+    "form": {
+      "title": "Create Account",
+      "subtitle": "Start your AI-powered trading journey",
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "password": "Password",
+      "tradingLevel": "Trading Level",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "expert": "Expert",
+      "terms": "I agree to the",
+      "termsLink": "Terms & Conditions",
+      "button": "Create Free Account",
+      "creating": "Creating Account...",
+      "usersJoined": "users joined today",
+      "withdraw": "Withdraw anytime",
+      "secure": "Secure & encrypted access",
+      "veryWeak": "Very Weak",
+      "weak": "Weak",
+      "fair": "Fair",
+      "good": "Good",
+      "strong": "Strong",
+      "termsError": "Please accept the Terms & Conditions to continue.",
+      "success": "Account created successfully! Redirecting...",
+      "error": "Registration failed. Please try again."
+    }
+  },
+  "features": {
+    "title": "Why Choose Quantum AI",
+    "subtitle": "Experience the future of trading with our cutting-edge quantum computing technology",
+    "userFriendly": {
+      "title": "User-friendly Interface",
+      "description": "Our trading interface is so easy even a child can use it. A member of the platform will call you and guide you through the entire process to ensure maximum returns."
+    },
+    "automated": {
+      "title": "Automated Trading",
+      "description": "Our automated trading bots can do all the work for you. No need to be an expert at trading. Earn while you sleep."
+    },
+    "trusted": {
+      "title": "Trusted Trading Platforms",
+      "description": "Quantum AI is based in the UK, and we only work and partner with UK companies. Stringent and well-known platforms will be encouraged."
+    },
+    "quantum": {
+      "title": "Quantum Volume (QV) Score",
+      "description": "Our quantum computing system has achieved a quantum volume (QV) 14,802. Achieving a high score on the industry-recognised QV benchmark, developed by IBM to test quantum computers' capability."
+    },
+    "deposit": {
+      "title": "Minimum $250 Deposit",
+      "description": "Try with a small deposit of $250. We allow small risk demos so you can test our trading bot on the market before larger deposits."
+    },
+    "security": {
+      "title": "Uncompromised Security",
+      "description": "Your data is safe with us. Trust us; we keep our quantum computing secret; emails are safe."
+    },
+    "certifiedBadge": "Certified Robot Trader",
+    "guidanceBadge": "Financial Advisors Guidance"
+  },
+  "howItWorks": {
+    "title": "Start Trading in Minutes",
+    "subtitle": "Our streamlined onboarding process gets you in the market faster.",
+    "step1": {
+      "title": "Connect Account",
+      "description": "Securely link your favorite exchange via encrypted API keys."
+    },
+    "step2": {
+      "title": "Pick a Strategy",
+      "description": "Choose from pre-set AI models or build your own custom bot."
+    },
+    "step3": {
+      "title": "Launch Bot",
+      "description": "Activate your AI and watch it execute trades with surgical precision."
+    }
+  },
+  "dashboard": {
+    "title": "A Control Center",
+    "titleAccent": "Built for Winners",
+    "profitTracking": {
+      "title": "Live Profit Tracking",
+      "description": "Monitor your realized and unrealized PNL in real-time across all your connected accounts."
+    },
+    "riskManagement": {
+      "title": "Risk Management Controls",
+      "description": "Advanced stop-loss, take-profit, and trailing-drawdown settings to protect your capital."
+    },
+    "tradeLogs": {
+      "title": "Comprehensive Trade Logs",
+      "description": "Audit every single move the AI makes with detailed reasoning for each execution."
+    }
+  },
+  "testimonials": {
+    "title": "What Our Traders Say",
+    "subtitle": "Join 50,000+ active users globally"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": "Is my capital safe with Quantum AI?",
+    "a1": "Yes. We never have direct access to your funds. The platform connects to your exchange via API keys with restricted withdrawal permissions. Your assets stay in your own exchange wallet.",
+    "q2": "What is the minimum investment required?",
+    "a2": "There is no minimum to use the platform itself, but most exchanges require at least $50-$100 to begin executing trades effectively.",
+    "q3": "Do I need prior trading experience?",
+    "a3": "Not at all. While experienced traders can use our advanced tools, beginners can start with our 'AI-Smart' pre-configured bots that require zero technical knowledge.",
+    "q4": "Which exchanges are supported?",
+    "a4": "We currently support Binance, Coinbase, Kraken, OKX, and Bybit. More exchanges are being added monthly."
+  },
+  "cta": {
+    "title": "Start your AI trading journey today",
+    "description": "Join thousands of smart investors who have automated their financial future with Quantum AI.",
+    "createAccount": "Create Free Account",
+    "viewPricing": "View Pricing",
+    "disclaimer": "No credit card required"
+  },
+  "footer": {
+    "description": "Revolutionizing global trading through advanced artificial intelligence and low-latency infrastructure.",
+    "platform": "Platform",
+    "company": "Company",
+    "support": "Support",
+    "aiAnalysis": "AI Analysis",
+    "botsMarketplace": "Bots Marketplace",
+    "riskManagement": "Risk Management",
+    "exchanges": "Supported Exchanges",
+    "aboutUs": "About Us",
+    "careers": "Careers",
+    "security": "Security",
+    "pressKit": "Press Kit",
+    "helpCenter": "Help Center",
+    "apiDocs": "API Docs",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "disclaimer": "Legal Disclaimer: Trading financial instruments involves significant risk and can result in the loss of invested capital. Quantum AI provides analytical tools and does not guarantee profits. Past performance is not indicative of future results.",
+    "copyright": "© 2024 Quantum AI Technologies. All rights reserved."
+  },
+  "terms": {
+    "title": "Terms & Conditions",
+    "lastUpdated": "Last Updated: March 2026",
+    "sections": {
+      "acceptance": {
+        "title": "Acceptance of Terms",
+        "content": "By accessing and using Quantum AI Trading Platform, you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to these terms, please do not use our services."
+      },
+      "aiServices": {
+        "title": "AI Trading Services",
+        "content": "Our platform provides AI-powered trading tools and analytics. Important points to understand:",
+        "points": [
+          "The AI predictions are for informational purposes only",
+          "Past performance does not guarantee future results",
+          "You are solely responsible for your trading decisions",
+          "We do not guarantee profits or protect against losses"
+        ]
+      },
+      "riskDisclosure": {
+        "title": "Risk Disclosure",
+        "content": "Trading cryptocurrencies and other financial instruments carries significant risk. You may lose some or all of your invested capital.",
+        "important": "IMPORTANT:",
+        "advice": "You should carefully consider whether trading is suitable for you in light of your financial circumstances."
+      },
+      "dataPrivacy": {
+        "title": "Data Privacy",
+        "content": "We take your privacy seriously. Your personal information is encrypted and never shared with third parties without your consent. Read our full Privacy Policy for more details."
+      },
+      "apiUsage": {
+        "title": "API Usage",
+        "content": "When connecting exchange APIs:",
+        "points": [
+          "We only require read and trade permissions",
+          "Withdrawal permissions are never requested",
+          "You can revoke access at any time"
+        ]
+      }
+    },
+    "agreement": {
+      "text": "I have read and agree to the Terms & Conditions and",
+      "privacyLink": "Privacy Policy"
+    },
+    "buttons": {
+      "accept": "Accept & Continue",
+      "decline": "Decline"
+    },
+    "backLink": "Back to Registration"
+  },
+
+  "success": {
+    "title": "Registration Successful!",
+    "message": "Thank you for joining Quantum AI Trading. Your account has been created successfully. We've sent a confirmation email to your inbox.",
+    "buttons": {
+      "homepage": "Go to Homepage",
+      "login": "Login to Account"
+    }
+  }
+}

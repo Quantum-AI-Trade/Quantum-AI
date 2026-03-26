@@ -1,22 +1,25 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './HowItWorks.module.css';
 
 const HowItWorks = () => {
+  const { t } = useTranslation();
+
   const steps = [
     {
       number: '1',
-      title: 'Connect Account',
-      description: 'Securely link your favorite exchange via encrypted API keys.'
+      titleKey: 'step1.title',
+      descriptionKey: 'step1.description'
     },
     {
       number: '2',
-      title: 'Pick a Strategy',
-      description: 'Choose from pre-set AI models or build your own custom bot.'
+      titleKey: 'step2.title',
+      descriptionKey: 'step2.description'
     },
     {
       number: '3',
-      title: 'Launch Bot',
-      description: 'Activate your AI and watch it execute trades with surgical precision.'
+      titleKey: 'step3.title',
+      descriptionKey: 'step3.description'
     }
   ];
 
@@ -24,16 +27,16 @@ const HowItWorks = () => {
     <section className={styles.howItWorks} id="how-it-works">
       <div className="container">
         <div className={styles.header}>
-          <h2 className={styles.title}>Start Trading in Minutes</h2>
-          <p className={styles.subtitle}>Our streamlined onboarding process gets you in the market faster.</p>
+          <h2 className={styles.title}>{t('howItWorks.title')}</h2>
+          <p className={styles.subtitle}>{t('howItWorks.subtitle')}</p>
         </div>
         
         <div className={styles.grid}>
           {steps.map((step, index) => (
             <div key={index} className={styles.step}>
               <div className={styles.stepNumber}>{step.number}</div>
-              <h3 className={styles.stepTitle}>{step.title}</h3>
-              <p className={styles.stepDescription}>{step.description}</p>
+              <h3 className={styles.stepTitle}>{t(`howItWorks.${step.titleKey}`)}</h3>
+              <p className={styles.stepDescription}>{t(`howItWorks.${step.descriptionKey}`)}</p>
               {index < steps.length - 1 && <div className={styles.stepConnector}></div>}
             </div>
           ))}

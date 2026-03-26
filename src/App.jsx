@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n';
 import Favicon from './components/Favicon';
+import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import TrustBar from './components/TrustBar/TrustBar';
@@ -21,11 +24,20 @@ const ScrollHandler = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if there's a hash in the URL (for sections)
-    if (location.hash && location.hash.startsWith('#')) {
-      const hash = location.hash.substring(1); // Remove the # symbol
-      
-      // Check if it's a section hash (not a route)
+    if (location.state?.scrollTo) {
+      const sectionId = location.state.scrollTo;
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          window.location.hash = sectionId;
+        }
+      }, 100);
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+    
+    if (window.location.hash && window.location.hash !== '#') {
+      const hash = window.location.hash.substring(1);
       if (!hash.includes('/') && hash !== '') {
         setTimeout(() => {
           const element = document.getElementById(hash);
@@ -34,22 +46,6 @@ const ScrollHandler = () => {
           }
         }, 100);
       }
-    }
-    
-    // Check for scroll state from navigation
-    if (location.state?.scrollTo) {
-      const sectionId = location.state.scrollTo;
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-          // Update URL with hash without triggering navigation
-          window.location.hash = sectionId;
-        }
-      }, 100);
-      
-      // Clear the state
-      navigate(location.pathname, { replace: true, state: {} });
     }
   }, [location, navigate]);
 
@@ -72,18 +68,23 @@ const HomePage = () => (
 
 function App() {
   return (
-    <div className={styles.app}>
-      <Favicon />
-      <Navbar />
-      <ScrollHandler />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/terms" element={<Terms />} />
-        <Route path="/Success" element={<Success />} />
-        <Route path="*" element={<HomePage />} />
-      </Routes>
-      <Footer />
-    </div>
+    <I18nextProvider i18n={i18n}>
+      <Router>
+        <div className={styles.app}>
+          <Favicon />
+          <Navbar />
+          <ScrollToTop />
+          <ScrollHandler />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/success" element={<Success />} />
+            <Route path="*" element={<HomePage />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </I18nextProvider>
   );
 }
 
