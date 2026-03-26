@@ -2,7 +2,7 @@
   "name": "quantum-ai-trading",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://quantum-ai-trade.github.io/Quantum-AI-/",
+  "homepage": "https://quantum-ai-trade.github.io/Quantum-AI/",
   "type": "module",
   "scripts": {
     "dev": "vite",
