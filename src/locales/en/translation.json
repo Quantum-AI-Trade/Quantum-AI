@@ -116,7 +116,7 @@
     "q1": "Is my capital safe with Quantum AI?",
     "a1": "Yes. We never have direct access to your funds. The platform connects to your exchange via API keys with restricted withdrawal permissions. Your assets stay in your own exchange wallet.",
     "q2": "What is the minimum investment required?",
-    "a2": "There is no minimum to use the platform itself, but most exchanges require at least $50-$100 to begin executing trades effectively.",
+    "a2": "There is no minimum to use the platform itself, but most exchanges require at least $250 to begin executing trades effectively.",
     "q3": "Do I need prior trading experience?",
     "a3": "Not at all. While experienced traders can use our advanced tools, beginners can start with our 'AI-Smart' pre-configured bots that require zero technical knowledge.",
     "q4": "Which exchanges are supported?",
